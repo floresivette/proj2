@@ -19,8 +19,8 @@
     
     <% if user_signed_in? %>
     <div class="button"><%= link_to 'My Profile', current_user %></div>
-    <div class="button"> <%= link_to 'Edit Your User', edit_user_registration_path %></div>
       <div class="rightbutton"><%= link_to 'Log Out', destroy_user_session_path, :method=>'delete' %></div>
+      <div class="rightbutton"><%= link_to 'Welcome,', edit_user_registration_path %> <%= current_user.name %> </div>
     <% else %>
         <div class="rightbutton"><%= link_to 'Log In', user_session_path %></div>
         <div class="rightbutton"><%= link_to 'Sign Up', new_user_registration_path %></div>
@@ -30,10 +30,11 @@
   <div class="main">
 
 <div class="container">
+  <div class="signinbubble">
   <div class="row">
     <h3>All Users</h3>
     <div class="column">
-      <table class="table">
+      <table class="table1" cellpadding="10">
         <tbody>
           <% if user_signed_in? %>
             <% @users.each do |user| %>
@@ -49,6 +50,7 @@
       </table>
     </div>
   </div>
+</div>
 </div>
 </div>
   <footer class="footer">

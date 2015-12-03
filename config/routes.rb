@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+  # root to: 'home#index'
   post 'friend', to: 'friendships', as: :friend
   devise_for :users, :controllers => { :registrations => "users/registrations" }
   resources :users
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :tasks
   get 'home/photo', to: 'home#photo'
   patch 'prioritize', to: 'tasks', as: :prioritize
+  get '/' => 'home#index', :as => "root"
 
   
 
